@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #22262B;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    border: 1px solid #6B6F73;
+    outline: none;
+    background: #22262B;
+    border-radius: 2rem;
+    padding: 0.8rem 0  0.8rem 1.8rem;
+    width: calc(100% - 2rem);
+    margin: 1rem;
+}
+
+.search-input::placeholder {
+    color: #6B6F73;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.6rem;
+    top: 1.9rem;
+}
