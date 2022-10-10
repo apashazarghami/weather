@@ -5,10 +5,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background: #22262B;
+}
+
 .container {
     width: 100vw;
-    height: 100vh;
-    background: #22262B;
 }
 
 .search-box {
@@ -89,4 +91,19 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-right: 2rem;
+}
+
+.days {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #87888C;
+    margin: 0.5rem 1rem;
+}
+
+.day {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background: #0071FF;
+    color: #C8FEFF;
 }
