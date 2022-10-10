@@ -50,8 +50,8 @@ body {
     margin: 0.5rem 1rem;
 }
 
-.icon-image {
-    border-radius: 0.8rem;
+.icon-image-main {
+    border-radius: 50%;
 }
 
 .temperature {
@@ -62,7 +62,6 @@ body {
 
 .degree {
     font-size: 1.5rem;
-    font-weight: bold;
     color: #B8BCC2;
 }
 
@@ -72,13 +71,13 @@ body {
     align-items: center;
 }
 
-.country {
+.main-country {
     color: #DFE0E7;
     font-weight: bold;
     /* font-size: 1.2rem; */
 }
 
-.city {
+.main-city {
     color: #878A95;
     font-weight: bold;
     /* font-size: 1.2rem; */
@@ -98,12 +97,69 @@ body {
     justify-content: space-between;
     align-items: center;
     color: #87888C;
-    margin: 0.5rem 1rem;
+    margin: 1rem;
 }
 
 .day {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
     background: #0071FF;
     color: #C8FEFF;
+}
+
+.title {
+    color: #A7AAB0;
+    font-size: 0.9rem;
+    margin: 2rem 0 1rem 1rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0.6rem;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.4rem;
+    background: #323741;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.weatherForecast {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.degreeCelcius {
+    color: #BFC2CD;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.condition {
+    color: #A2A7B1;
+    margin-left: 1rem;
+    font-size: 0.8rem;
+}
+
+.city {
+    color: #DADCE2;
+    font-size: 0.8rem;
+}
+
+.country {
+    color: #E1E2EB;
+    margin-left: 0.1rem;
+    font-size: 0.8rem;
+}
+
+.icon-image {
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
 }

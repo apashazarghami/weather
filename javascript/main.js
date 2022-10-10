@@ -1,4 +1,5 @@
 let city;
+const popularLocationsDiv = document.createElement("div");
 const serachIcon = document.querySelector(".search-icon");
 const container = document.querySelector(".container");
 
@@ -23,7 +24,7 @@ const createMainWeather = (image, temperature, city, country) => {
 
     mainDiv.classList.add("main-forecast");
     weatherIcon.src = image;
-    weatherIcon.classList.add("icon-image")
+    weatherIcon.classList.add("icon-image-main")
     iconDiv.appendChild(weatherIcon);
     temperatureSpan.innerText = `${temperature}`;
     temperatureSpan.classList.add("temperature");
@@ -37,9 +38,9 @@ const createMainWeather = (image, temperature, city, country) => {
     forecastDiv.appendChild(countryDiv);
     locationImage.src = "../images/location-icon.png";
     citySpan.innerText = `${city},`
-    citySpan.classList.add("city");
+    citySpan.classList.add("main-city");
     countrySpan.innerText = `${country}`;
-    countrySpan.classList.add("country");
+    countrySpan.classList.add("main-country");
     countryDiv.appendChild(locationImage);
     countryDiv.appendChild(citySpan);
     countryDiv.appendChild(countrySpan);
@@ -83,9 +84,57 @@ const setDay = () => {
     }
 }
 
+const setTitle = () => {
+    const popularLocations = document.createElement("h3");
+    popularLocations.innerText = "Popular Locations";
+    popularLocations.classList.add("title");
+    popularLocationsDiv.appendChild(popularLocations);
+    container.appendChild(popularLocationsDiv);
+}
+
+const cardsDiv = document.createElement("div");
+const weatherHandler = (temperatue, condition, city, country, image) => {
+    const cardDiv = document.createElement("div");
+    const forecastsDiv = document.createElement("div");
+    const iconDiv = document.createElement("div");
+    const temperaturesDiv = document.createElement("div");
+    const cityCountryDiv = document.createElement("div");
+    const weatherSpan = document.createElement("span");
+    const degreeSpan = document.createElement("sup");
+    const conditionSpan = document.createElement("span");
+    const citySpan = document.createElement("span");
+    const countrySpan = document.createElement("span");
+    const iconImage = document.createElement("img");
+    cardsDiv.classList.add("cards");
+    cardDiv.classList.add("card");
+    weatherSpan.classList.add("weatherForecast");
+    degreeSpan.classList.add("degreeCelcius");
+    conditionSpan.classList.add("condition");
+    citySpan.classList.add("city");
+    countrySpan.classList.add("country");
+    iconImage.classList.add("icon-image")
+    weatherSpan.innerText = temperatue;
+    degreeSpan.innerText = "°C";
+    conditionSpan.innerText = condition;
+    citySpan.innerText = `${city},`;
+    countrySpan.innerText = country;
+    iconImage.src = image;
+    cardDiv.appendChild(forecastsDiv);
+    cardDiv.appendChild(iconDiv);
+    forecastsDiv.appendChild(temperaturesDiv);
+    forecastsDiv.appendChild(cityCountryDiv);
+    temperaturesDiv.appendChild(weatherSpan);
+    temperaturesDiv.appendChild(degreeSpan);
+    temperaturesDiv.appendChild(conditionSpan);
+    cityCountryDiv.appendChild(citySpan);
+    cityCountryDiv.appendChild(countrySpan);
+    iconDiv.appendChild(iconImage)
+    cardsDiv.appendChild(cardDiv);
+    popularLocationsDiv.appendChild(cardsDiv); 
+}
+
 const serachHandler = () => {
     setCity();
-    if(container.children.length === 1) {
         fetch(`http://api.weatherstack.com/forecast?access_key=6d05179956ec17bb7f0488a8ccd48eed&query=${city}`)
             .then(response => response.json())
             .then(json => {
@@ -93,11 +142,15 @@ const serachHandler = () => {
                 const temperature = json.current.temperature;
                 const city = json.location.name;
                 const country = json.location.country;
-                createMainWeather(imageSrc, temperature, city, country);
-                // saveToLocalStorage(json);
-                setDay();
+                const weatherDescriptions = json.current.weather_descriptions[0];
+                if(container.children.length === 1) {
+                    createMainWeather(imageSrc, temperature, city, country);
+                    // saveToLocalStorage(json);
+                    setDay();
+                    setTitle();
+                }
+                weatherHandler(temperature, weatherDescriptions, city, country, imageSrc);
             });
-    }
 }
 
 
