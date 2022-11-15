@@ -87,7 +87,7 @@ const createMainWeather = (image, temperature, city, country) => {
     "img",
     countryDivTag,
     "nothing",
-    "../images/location-icon.png"
+    "./images/location-icon.png"
   );
   createTag(countrySpan, "span", countryDivTag, "main-country", `${country},`);
   createTag(citySpan, "span", countryDivTag, "main-city", `${city}`);
@@ -205,8 +205,8 @@ const setSingleWeather = (city, country) => {
       "nothing",
       ""
     );
-  createTag(arrowBack, "img", iconDivTag, "back-image", "../images/back.png");
-  createTag(saveIcon, "img", iconDivTag, "save-image", "../images/unsave.png");
+  createTag(arrowBack, "img", iconDivTag, "back-image", "./images/back.png");
+  createTag(saveIcon, "img", iconDivTag, "save-image", "./images/unsave.png");
   createTag(
     citySpan,
     "span",
@@ -365,7 +365,7 @@ const setForecast = (city) => {
         "img",
         pressureDivTag,
         "nothing",
-        "../images/pressure.png"
+        "./images/pressure.png"
       );
       createTag(
         pressureValue,
@@ -381,7 +381,7 @@ const setForecast = (city) => {
         "forecast-title",
         "Pressure"
       );
-      createTag(windIcon, "img", windDivTag, "nothing", "../images/wind.png");
+      createTag(windIcon, "img", windDivTag, "nothing", "./images/wind.png");
       createTag(windValue, "div", windDivTag, "value", `${wind} k/h`);
       createTag(windTitle, "div", windDivTag, "forecast-title", "Wind");
       createTag(
@@ -389,7 +389,7 @@ const setForecast = (city) => {
         "img",
         visibilityDivTag,
         "nothing",
-        "../images/visibility.png"
+        "./images/visibility.png"
       );
       createTag(
         visibilityValue,
@@ -410,7 +410,7 @@ const setForecast = (city) => {
         "img",
         humidityDivTag,
         "nothing",
-        "../images/humidity.png"
+        "./images/humidity.png"
       );
       createTag(humidityValue, "div", humidityDivTag, "value", `${humidity}%`);
       createTag(
@@ -425,7 +425,7 @@ const setForecast = (city) => {
         "img",
         feelslikeDivTag,
         "nothing",
-        "../images/feelslike.png"
+        "./images/feelslike.png"
       );
       createTag(
         feelslikeValue,
@@ -441,7 +441,7 @@ const setForecast = (city) => {
         "forecast-title",
         "Feelslike"
       );
-      createTag(uvIcon, "img", uvDivTag, "nothing", "../images/uv.png");
+      createTag(uvIcon, "img", uvDivTag, "nothing", "./images/uv.png");
       createTag(uvValue, "div", uvDivTag, "value", `${uv}`);
       createTag(uvTitle, "div", uvDivTag, "forecast-title", "UV");
     });
