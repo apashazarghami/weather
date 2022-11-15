@@ -12,6 +12,7 @@ const setCity = () => {
 };
 
 const getWeatherResponse = (weatherInformation, isSave) => {
+  console.log(weatherInformation);
   const imageSrc = weatherInformation.current.weather_icons[0],
     temperature = weatherInformation.current.temperature,
     city = weatherInformation.location.name,
